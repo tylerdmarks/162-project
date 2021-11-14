@@ -12,7 +12,7 @@ s = servo(ard, servo_pin, 'MinPulseDuration', min_pulse, 'MaxPulseDuration', max
 
 % parameters
 initial_pos = 0.5;           % starting position for servo (degrees, 0.5 = center)
-intensities = 20;      % stimulus intensities, represented by degrees of motion for the servo arm
+intensities = [2 4 6];      % stimulus intensities, represented by degrees of motion for the servo arm
 stimdata.num_trials = 10;             % number of trials for each intensity
 stimdata.total_trials = stimdata.num_trials*length(intensities);
 stimdata.num_stim = 5;               % number of stimulation periods per trial
