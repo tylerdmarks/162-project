@@ -42,12 +42,12 @@ for tt = 1:size(full_resp, 1)
     yticks([-0.4 0 0.4])
     ylim([-0.4 0.4])
 end
-
-% spike rasters
-figure
-plotSpikeRaster(logical(fullSpikes), 'PlotType', 'vertline');
-xlabel('Time')
-ylabel('Trial')
+% 
+% % spike rasters
+% figure
+% plotSpikeRaster(logical(fullSpikes), 'PlotType', 'vertline');
+% xlabel('Time')
+% ylabel('Trial')
 
 
 % bin spikes into bins (full trace)
@@ -79,8 +79,9 @@ hold on
 for ss = 1:size(rel_stim_spikerate, 1)
     p = plot(rel_stim_spikerate(ss, :), 'LineWidth', 2);
 end
-plot(1:size(rel_stim_spikerate, 2), mean_sr, 'Color', 'k', 'LineWidth', 2);
-
+plot(1:size(rel_stim_spikerate, 2), mean_sr, 'Color', 'k', 'LineWidth', 3);
+xlabel('Stimulus repeat')
+ylabel('Normalized spike rate')
 
     
     
