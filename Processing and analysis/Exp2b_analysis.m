@@ -63,16 +63,18 @@ binned_spikerate = binned_spikes/bin_size;
 
 figure
 imagesc(binned_spikerate)
+colormap jet
 colorbar
-
+xlabel('Time (bin)')
+ylabel('Trial')
 
 % binning spikes by stimulus
 binned_stim_spikerate = sum(stimSpikes, 3)/3;
 rel_stim_spikerate = binned_stim_spikerate./binned_stim_spikerate(:, 1);
-mean_sr = mean(rel_stim_spikerate, 1);
-% mean_sr = mean(rel_stim_spikerate(1:end~=4, :), 1);           % exclude the weird trial
-se_sr = std(rel_stim_spikerate, 1)/sqrt(size(rel_stim_spikerate, 1));
-% se_sr = std(rel_stim_spikerate(1:end~=4, :), 1)/sqrt(size(rel_stim_spikerate, 1)-1);      % exclude the weird trial
+% mean_sr = mean(rel_stim_spikerate, 1);
+mean_sr = mean(rel_stim_spikerate(1:end~=4, :), 1);           % exclude the weird trial
+% se_sr = std(rel_stim_spikerate, 1)/sqrt(size(rel_stim_spikerate, 1));
+se_sr = std(rel_stim_spikerate(1:end~=4, :), 1)/sqrt(size(rel_stim_spikerate, 1)-1);      % exclude the weird trial
 
 figure
 hold on

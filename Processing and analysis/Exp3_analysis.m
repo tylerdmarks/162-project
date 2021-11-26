@@ -48,11 +48,15 @@ for tt = 1:size(full_resp, 1)
             [-0.4 0.4 0.4 -0.4], 'c', 'FaceAlpha', 0.2, 'EdgeAlpha', 0);
     end
     plot(linspace(0, size(full_resp, 2)/sample_rate, size(full_resp, 2)), full_resp(tt, :));
-    xticks([])
+    if tt ~= size(full_resp, 1)
+        xticks([])
+    end
     yticks([-0.4 0 0.4])
     ylim([-0.4 0.4])
     xlim([0 size(full_resp, 2)/sample_rate])
 end
+xlabel('Time (s)')
+ylabel('mV')
 
 % plot raw traces, example trial
 example_trial = 2;
@@ -64,7 +68,17 @@ for ss = 1:3
     yticks([-0.3 0 0.3])
     ylim([-0.3 0.3])
     xlim([0 size(stim_resp, 3)/sample_rate])
+    switch ss 
+        case 1
+            title('Barb 1');
+        case 2
+            title('Barb 2');
+        case 3
+            title('Both');
+    end
 end
+xlabel('Time (s)')
+ylabel('mV')
     
 
 %% quantifying spike rates for each population during each stimulation period

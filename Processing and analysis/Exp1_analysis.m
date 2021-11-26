@@ -56,7 +56,7 @@ end
 
 % plot raw traces
 
-figure
+figure;
 for ii = 1:3
     for tt = 1:size(RespData.Full{ii}, 1)
         subplot(10, 3, ii+(tt-1)*3)
@@ -178,6 +178,7 @@ for ii = 1:3
     axis square
 end
 
+% average overlay
 figure
 hold on
 for ii = 1:3
